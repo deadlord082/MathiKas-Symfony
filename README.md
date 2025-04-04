@@ -21,6 +21,7 @@ docker compose up -d
 
 ## Ressources utiles
 
+- [Security](https://symfony.com/doc/current/security.html), point d'entrée de la doc Symfony sur la sécurisation des sites web;
 - [Sending Emails with Mailer]( https://symfony.com/doc/current/mailer.html), documentation Symfony sur la configuration du service *mailer* (envoi de mail)
 - [Flash Messages](https://symfony.com/doc/current/session.html#flash-messages), documentation Symfony sur les messages flash (des messages à n'afficher qu'une fois), utile pour afficher une notice après une redirection par exemple
 - [Firewall](https://symfony.com/doc/current/security.html#the-firewall), documentation Symfony sur le concept de *firewall* (pare-feu). Un firewall définit les routes protégées par authentification et le mode d'authentification
