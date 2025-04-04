@@ -8,6 +8,10 @@ Une démo d'une application web Symfony avec authentification, vérification de 
 - Installer Composer;
 - Installer le gestionnaire de projet Symfony.
 
+## Configuration
+
+Vérifier les ports publiés pour les services (conteneurs) de postgresql et de mailpit et les adapter au besoin.
+
 ## Installer
 
 ~~~bash
