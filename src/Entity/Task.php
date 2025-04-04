@@ -2,10 +2,15 @@
 // src/Entity/Task.php
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 class Task
 {
+    #[Assert\NotBlank]
     protected string $task;
 
+    #[Assert\NotBlank]
+    #[Assert\Type(\DateTimeInterface::class)]
     protected ?\DateTimeInterface $dueDate;
 
     public function getTask(): string
