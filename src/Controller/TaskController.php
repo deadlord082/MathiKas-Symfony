@@ -9,16 +9,22 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Form\TaskType;
 //Import de notre entité
 use App\Entity\Task;
+use Symfony\Component\Routing\Route;
 
 final class TaskController extends AbstractController
 {
+
+    #[Route('/edit-task', name: 'app_edit_task')]
     public function new(Request $request): Response
     {
-
+        //1. On prépare un objet vide (cible du form)
         $task = new Task();
-        // $task->setTask('Write a blog post');
-        // $task->setDueDate(new \DateTimeImmutable('tomorrow'));
+        //2. Crée le form via la formbuilder et la classe préparée
         $form = $this->createForm(TaskType::class, $task);
+        //3.On passe le form à la vue
+        return $this->render('task/index.html.twig', [
+            'form' => $form
+        ]);
        
     }
 }
