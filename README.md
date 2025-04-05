@@ -15,7 +15,8 @@ Vérifier les ports publiés pour les services (conteneurs) de postgresql et de 
 ## Installer
 
 ~~~bash
-composer update
+composer install
+php bin/console doctrine:migrations:migrate
 docker compose up -d
 ~~~
 
