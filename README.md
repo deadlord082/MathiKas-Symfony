@@ -20,6 +20,18 @@ php bin/console doctrine:migrations:migrate
 docker compose up -d
 ~~~
 
+## Lancer le projet
+
+~~~bash
+symfony server:start -d
+~~~
+
+## Arreter le projet
+
+~~~bash
+symfony server:stop
+~~~
+
 ## Ressources utiles
 
 - [Security](https://symfony.com/doc/current/security.html), point d'entrée de la doc Symfony sur la sécurisation des sites web;
