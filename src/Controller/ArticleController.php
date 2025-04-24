@@ -19,7 +19,7 @@ final class ArticleController extends AbstractController
     public function all(Request $request, EntityManagerInterface $em): Response
     { 
         $article = Article::class;
-        $articles = $article->getArticles;
+        $articles = $article->getArticles();
 
         return $this->render('article/articles.html.twig', [
             'articles' => $articles
