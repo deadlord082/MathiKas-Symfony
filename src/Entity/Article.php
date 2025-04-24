@@ -13,15 +13,15 @@ class Article
 
     #[Assert\NotBlank]
     #[ORM\Column]
-    protected string $title = null;
+    protected ?string $title = null;
 
     #[Assert\NotBlank]
     #[ORM\Column]
-    protected string $content = null;
+    protected ?string $content = null;
 
     #[Assert\NotBlank]
     #[ORM\Column]
-    protected ?int $user_id = null;
+    protected ?string $user_id = null;
 
     #[Assert\NotBlank]
     #[Assert\Type(\DateTimeInterface::class)]
@@ -52,7 +52,7 @@ class Article
         return $this->user_id;
     }
 
-    public function setuser_id(?int $user_id): void
+    public function setuser_id(?string $user_id): void
     {
         $this->user_id = $user_id;
     }

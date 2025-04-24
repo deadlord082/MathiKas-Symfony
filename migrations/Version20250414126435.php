@@ -21,7 +21,7 @@ final class Version20250414126435 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql(<<<'SQL'
-            CREATE TABLE "booking" (id SERIAL NOT NULL, book_id INT(255) NOT NULL, user_id INT(255) NOT NULL, date VARCHAR(255) NOT NULL, PRIMARY KEY(id))
+            CREATE TABLE "booking" (id SERIAL NOT NULL, book_id SERIAL NOT NULL, user_id SERIAL NOT NULL, date VARCHAR(255) NOT NULL, PRIMARY KEY(id))
         SQL);
     }
 

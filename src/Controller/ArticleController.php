@@ -24,7 +24,7 @@ final class ArticleController extends AbstractController
         $article = new article();
         $article->settitle('Maitriser Symfony');
         $article->setcontent(content: 'test');
-        $article->setuser_id(1);
+        $article->setuser_id('1');
         $article->setDate(new \DateTimeImmutable('tomorrow'));
 
         //2. Crée le form via la formbuilder et la classe préparée
