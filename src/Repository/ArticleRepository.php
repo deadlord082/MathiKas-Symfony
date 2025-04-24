@@ -17,14 +17,14 @@ class ArticleRepository extends ServiceEntityRepository
     }
 
 
-       /**
-        * @return article[] Returns an array of article objects
-        */
-       public function getArticles(): array
-       {
-           return $this->findAll()
-           ;
-       }
+    //    /**
+    //     * @return article[] Returns an array of article objects
+    //     */
+    //    public function getArticles(): array
+    //    {
+    //        return $this->findAll()
+    //        ;
+    //    }
 
     //    public function findOneBySomeField($value): ?article
     //    {

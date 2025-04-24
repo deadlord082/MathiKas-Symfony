@@ -10,7 +10,6 @@ use App\Repository\ArticleRepository;
 #[ORM\Table(name: '`article`')]
 class Article
 {
-    private $repository = ArticleRepository::repository();
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -71,10 +70,5 @@ class Article
     public function setdate(?\DateTimeInterface $date): void
     {
         $this->date = $date;
-    }
-    
-    public function getArticles(): array
-    {
-        return $this->repository->getArticles();
     }
 }
