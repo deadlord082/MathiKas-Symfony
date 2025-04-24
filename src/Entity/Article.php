@@ -53,15 +53,6 @@ class Article
         $this->content = $content;
     }
 
-    public function getuserid(): string
-    {
-        return $this->userid;
-    }
-
-    public function setuserid(?string $userid): void
-    {
-        $this->userid = $userid;
-    }
 
     public function getdate(): ?\DateTimeInterface
     {
