@@ -25,9 +25,9 @@ class Article
     #[ORM\Column]
     protected ?string $content = null;
 
-    #[Assert\NotBlank]
-    #[ORM\Column]
-    protected ?string $userid = null;
+    #[ORM\ManyToOne(inversedBy: "articles", fetch: "EAGER")]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $author = null;
 
     #[Assert\NotBlank]
     #[Assert\Type(\DateTimeInterface::class)]
