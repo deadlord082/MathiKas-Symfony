@@ -14,15 +14,19 @@ Vérifier les ports publiés pour les services (conteneurs) de postgresql et de 
 
 ## Installer
 
+Changer les ports situer à:
+- compose.yaml
+
 ~~~bash
 composer install
-php bin/console doctrine:migrations:migrate
 docker compose up -d
+php bin/console doctrine:migrations:migrate
 ~~~
 
 ## Lancer le projet
 
 ~~~bash
+docker compose up -d
 symfony server:start -d
 ~~~
 

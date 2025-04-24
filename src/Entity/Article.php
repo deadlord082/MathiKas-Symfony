@@ -21,7 +21,7 @@ class Article
 
     #[Assert\NotBlank]
     #[ORM\Column]
-    protected ?string $user_id = null;
+    protected ?string $userid = null;
 
     #[Assert\NotBlank]
     #[Assert\Type(\DateTimeInterface::class)]
@@ -47,14 +47,14 @@ class Article
         $this->content = $content;
     }
 
-    public function getuser_id(): string
+    public function getuserid(): string
     {
-        return $this->user_id;
+        return $this->userid;
     }
 
-    public function setuser_id(?string $user_id): void
+    public function setuserid(?string $userid): void
     {
-        $this->user_id = $user_id;
+        $this->userid = $userid;
     }
 
     public function getdate(): ?\DateTimeInterface
