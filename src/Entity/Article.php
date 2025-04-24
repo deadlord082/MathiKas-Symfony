@@ -69,4 +69,9 @@ class Article
     {
         $this->date = $date;
     }
+    
+    public function getArticles(): array
+    {
+        return $this->getArticles();
+    }
 }
