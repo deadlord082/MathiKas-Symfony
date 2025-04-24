@@ -6,12 +6,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\ArticleRepository;
 
 
-$repository = ArticleRepository::repository();
-
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 #[ORM\Table(name: '`article`')]
 class Article
 {
+    private $repository = ArticleRepository::repository();
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -75,6 +75,6 @@ class Article
     
     public function getArticles(): array
     {
-        return repository::getArticles();
+        return $this->repository->getArticles();
     }
 }
