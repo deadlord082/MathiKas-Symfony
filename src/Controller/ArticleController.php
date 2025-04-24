@@ -18,13 +18,13 @@ final class ArticleController extends AbstractController
 
     #[Route('/edit-article/', name: 'app_edit_article')]
     public function new(Request $request, EntityManagerInterface $em): Response
-    {
+    { 
        
         //1. On prépare un objet vide (cible du form)
         $article = new article();
         $article->settitle('Maitriser Symfony');
         $article->setcontent('test');
-        $article->setuser_id('1');
+        $article->setuserid('1');
         $article->setDate(new \DateTimeImmutable('tomorrow'));
 
         //2. Crée le form via la formbuilder et la classe préparée
