@@ -21,7 +21,7 @@ class Article
 
     #[Assert\NotBlank]
     #[ORM\Column]
-    protected ?string $user_id = null;
+    protected ?string $userid = null;
 
     #[Assert\NotBlank]
     #[Assert\Type(\DateTimeInterface::class)]
