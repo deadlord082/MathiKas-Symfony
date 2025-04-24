@@ -23,6 +23,12 @@ final class Version20250414082310 extends AbstractMigration
         $this->addSql(<<<'SQL'
             CREATE TABLE "article" (id SERIAL NOT NULL, title VARCHAR(255) NOT NULL, content VARCHAR(255) NOT NULL, author_id VARCHAR(255) NOT NULL, date VARCHAR(255) NOT NULL, PRIMARY KEY(id))
         SQL);
+        $this->addSql(<<<'SQL'
+            CREATE INDEX IDX_23A0E66F675F31B ON article (author_id)
+        SQL);
+        $this->addSql(<<<'SQL'
+            ALTER TABLE article ADD CONSTRAINT FK_23A0E66F675F31B FOREIGN KEY (author_id) REFERENCES "user" (id) NOT DEFERRABLE INITIALLY IMMEDIATE
+        SQL);
     }
 
     public function down(Schema $schema): void
