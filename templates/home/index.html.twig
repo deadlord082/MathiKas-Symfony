@@ -10,6 +10,8 @@
 	{% if app.user %}
 		<p>
 			<a href="{{ path('app_logout')}}">Se déconnecter</a>
+			<a href="{{ path('app_edit_article') }}">aller voir un article</a>
+			<a href="{{ path('app_edit_task') }}">aller voir une task</a>
 		</p>
 	{% else %}
 		<p>

@@ -21,7 +21,7 @@ class ArticleType extends AbstractType
             ->add('content', TextType::class, [
                 'constraints' =>  new Length(['max' => 255]),
             ])
-            ->add('user_id', IntType::class, [
+            ->add('user_id', TextType::class, [
                 'constraints' =>  new Length(['max' => 255]),
             ])
             ->add('save', SubmitType::class)
