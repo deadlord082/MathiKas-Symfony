@@ -18,8 +18,7 @@ final class ArticleController extends AbstractController
     #[Route('/articles/', name: 'app_articles')]
     public function all(Request $request, EntityManagerInterface $em): Response
     { 
-        $article = Article::class;
-        $articles = $article->getArticles;
+        $articles = $em->getRepository(Article::class)->findAll();
 
         return $this->render('article/articles.html.twig', [
             'articles' => $articles
