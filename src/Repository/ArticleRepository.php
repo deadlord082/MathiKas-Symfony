@@ -5,14 +5,11 @@ namespace App\Repository;
 use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\Security\Core\Exception\UnsupportedarticleException;
-use Symfony\Component\Security\Core\article\PasswordAuthenticatedarticleInterface;
-use Symfony\Component\Security\Core\article\PasswordUpgraderInterface;
 
 /**
  * @extends ServiceEntityRepository<article>
  */
-class ArticleRepository extends ServiceEntityRepository implements PasswordUpgraderInterface
+class ArticleRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {

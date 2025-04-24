@@ -5,6 +5,9 @@ namespace App\Entity;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\ArticleRepository;
 
+
+$repository = ArticleRepository::repository();
+
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 #[ORM\Table(name: '`article`')]
 class Article
@@ -72,6 +75,6 @@ class Article
     
     public function getArticles(): array
     {
-        return $this->getArticles();
+        return repository::getArticles();
     }
 }
