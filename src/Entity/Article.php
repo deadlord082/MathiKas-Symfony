@@ -3,7 +3,10 @@
 namespace App\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Repository\ArticleRepository;
 
+#[ORM\Entity(repositoryClass: ArticleRepository::class)]
+#[ORM\Table(name: '`article`')]
 class Article
 {
     #[ORM\Id]

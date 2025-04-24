@@ -15,6 +15,15 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class ArticleController extends AbstractController
 {
+    #[Route('/articles/', name: 'app_articles')]
+    public function all(Request $request, EntityManagerInterface $em): Response
+    { 
+        $articles = $this->getArticles();
+
+        return $this->render('article/articles.html.twig', [
+            'articles' => $articles
+        ]);   
+    }
 
     #[Route('/edit-article/', name: 'app_edit_article')]
     public function new(Request $request, EntityManagerInterface $em): Response
