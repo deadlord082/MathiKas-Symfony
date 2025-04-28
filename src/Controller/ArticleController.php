@@ -40,15 +40,13 @@ final class ArticleController extends AbstractController
     public function add(Request $request, EntityManagerInterface $em): Response
     {
         // Récupère le user depuis la session
-        // $user = $this->security->getUser();
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
-        // $user = new User();
     
         //1. On prépare un objet vide (cible du form)
         $article = new article();
-        $article->settitle('testTitre');
-        $article->setcontent('testContenu');
+        $article->settitle('Titre');
+        $article->setcontent('Contenu');
         $article->setAuthor($user);
         $article->setdate(new \DateTimeImmutable());
 

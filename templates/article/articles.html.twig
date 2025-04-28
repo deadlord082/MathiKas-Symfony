@@ -5,13 +5,14 @@
 {% block body %}
 
 <h1>Liste des articles</h1>
-
+{% if app.user %}
 <a href="{{ path('app_add_article') }}" class="border mb-8 border-slate-400 flex p-4 rounded-md max-w-96 hover:bg-gray-200">
     <span class="text-gray-400">
         <i class="fa-solid fa-pencil"></i>
     </span>
     <span>Create Article</span>
 </a>
+{% endif %}
 
 
 <div class="flex flex-wrap gap-4">
@@ -25,7 +26,8 @@
             <i class="fa-solid fa-pencil"></i>
             {{article.date|date('d/m/Y')}}
             </span>
-        </a>
+        </a><br>
+        {% if app.user %}
         <a href="{{ path('app_edit_article', {id: article.id}) }}" class="border mb-8 border-slate-400 flex p-4 rounded-md max-w-96 hover:bg-gray-200">
             <span class="text-gray-400">
                 <i class="fa-solid fa-pencil"></i>
@@ -33,6 +35,7 @@
             <span>Edit Article</span>
         </a>
         </article>
+        {% endif %}
         {% endfor%}
     {% else %}
         <h2 class="m-auto" >Il n'y a pas d'article</h2>

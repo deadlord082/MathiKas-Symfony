@@ -8,11 +8,9 @@
 
 <img class="rounded-sm" src="{{ asset('images/placeholder.svg') }}"/>
 <h2>{{article.title}}</h2>
-<p>écrit par {{article.author.email}}</p>
+<p>écrit par {{article.author.email}} le {{article.date|date('d/m/Y')}}</p>
 <span class="text-gray-400">
 <h3>{{article.content}}</h3>
-<i class="fa-solid fa-pencil"></i>
-{{article.date|date('d/m/Y')}}
 </span>
 
 {% endblock %}

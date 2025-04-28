@@ -13,12 +13,11 @@
 			<a href="{{ path('app_articles') }}">voir les articles</a>
 		</p>
 	{% else %}
-		<p>
-			<a href="{{ path('app_register') }}">Créer un compte</a>
-		</p>
-		<p>
-			<a href="{{ path('app_login')}}">Se connecter</a>
-		</p>
+		<a href="{{ path('app_register') }}">Créer un compte</a>
+		<br>
+		<a href="{{ path('app_login')}}">Se connecter</a>
+		<br>
+		<a href="{{ path('app_articles') }}">voir les articles</a>
 	{% endif %}
 
 
