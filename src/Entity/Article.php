@@ -30,8 +30,12 @@ class Article
     private ?User $author = null;
 
     #[ORM\Column]
-  private ?\DateTimeImmutable $date = null;
+    private ?\DateTimeImmutable $date = null;
 
+    public function getid(): int
+    {
+        return $this->id;
+    }
     public function gettitle(): string
     {
         return $this->title;

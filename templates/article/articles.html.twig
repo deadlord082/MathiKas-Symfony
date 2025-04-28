@@ -18,7 +18,7 @@
     {% if articles|length > 0 %}
         {% for article in articles %}
         <article class="border border-slate-400 p-4 rounded-md max-w-96">
-        <a class="flex flex-col gap-3" href=" {# {{ path('app_article', {id: article.id}) }} #}">
+        <a class="flex flex-col gap-3" href="{{ path('app_show_article', {id: article.id}) }}">
             <img class="rounded-sm" src="{{ asset('images/placeholder.svg') }}"/>
             <h2>{{article.title}}</h2>
             <span class="text-gray-400">

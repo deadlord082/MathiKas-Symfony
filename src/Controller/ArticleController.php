@@ -26,6 +26,16 @@ final class ArticleController extends AbstractController
         ]);   
     }
 
+    #[Route("/articles/{id}", name: "app_show_article", requirements: ["id" => "\d+"])]
+    public function show(EntityManagerInterface $em, int $id): Response
+    { 
+        $article = $em->getRepository(Article::class)->find($id);
+
+        return $this->render('article/show.html.twig', [
+            'article' => $article
+        ]);   
+    }
+
     #[Route("/add-article", name: "app_add_article")]
     public function add(Request $request, EntityManagerInterface $em): Response
     {
@@ -55,6 +65,7 @@ final class ArticleController extends AbstractController
             //La j'ai un objet correct, je peux le persister
             $em->persist($article);
             $em->flush();
+            return $this->redirectToRoute("app_articles");
         }
 
         //3.On passe le form à la vue
@@ -63,16 +74,12 @@ final class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/edit-article/', name: 'app_edit_article')]
-    public function new(Request $request, EntityManagerInterface $em): Response
+    #[Route('/edit-article/{id}', name: 'app_edit_article', requirements: ["id" => "\d+"])]
+    public function new(Request $request, EntityManagerInterface $em, int $id): Response
     { 
        
         //1. On prépare un objet vide (cible du form)
-        $article = new article();
-        $article->settitle('Maitriser Symfony');
-        $article->setcontent('test');
-        $article->setuserid('1');
-        $article->setDate(new \DateTimeImmutable('tomorrow'));
+        $article = $em->getRepository(Article::class)->find($id);
 
         //2. Crée le form via la formbuilder et la classe préparée
         $form = $this->createForm(ArticleType::class, $article);
@@ -86,10 +93,11 @@ final class ArticleController extends AbstractController
             //La j'ai un objet correct, je peux le persister
             $em->persist($article);
             $em->flush();
+            return $this->redirectToRoute("app_articles");
         }
 
         //3.On passe le form à la vue
-        return $this->render('article/index.html.twig', [
+        return $this->render('article/edit.html.twig', [
             'form' => $form
         ]);
        
