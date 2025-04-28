@@ -40,6 +40,12 @@ final class Version20250414126435 extends AbstractMigration
     public function down(Schema $schema): void
     {
         $this->addSql(<<<'SQL'
+            ALTER TABLE article DROP CONSTRAINT FK_24A0E76F675F31B
+        SQL);
+        $this->addSql(<<<'SQL'
+            ALTER TABLE article DROP CONSTRAINT FK_36A0E76F675F31B
+        SQL);
+        $this->addSql(<<<'SQL'
             DROP TABLE "booking"
         SQL);
     }

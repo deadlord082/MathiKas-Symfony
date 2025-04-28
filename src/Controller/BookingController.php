@@ -16,7 +16,9 @@ final class BookingController extends AbstractController
     #[Route('/bookings/', name: 'app_bookings')]
     public function all(Request $request, EntityManagerInterface $em): Response
     { 
-        $bookings = $em->getRepository(Booking::class)->findAll();
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $user = $this->getUser();
+        $bookings = $em->getRepository(Booking::class)->findAll(['user_id' => $user->id]);
 
         return $this->render('booking/bookings.html.twig', [
             'bookings' => $bookings
