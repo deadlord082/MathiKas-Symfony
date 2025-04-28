@@ -27,7 +27,7 @@
             {{article.date|date('d/m/Y')}}
             </span>
         </a><br>
-        {% if app.user && article.author.id === app.user.id %}
+        {% if app.user and article.author.id === app.user.id %}
         <a href="{{ path('app_edit_article', {id: article.id}) }}" class="border mb-8 border-slate-400 flex p-4 rounded-md max-w-96 hover:bg-gray-200">
             <span class="text-gray-400">
                 <i class="fa-solid fa-pencil"></i>
