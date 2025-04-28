@@ -34,8 +34,14 @@
             </span>
             <span>Editer un livre</span>
         </a>
-        </book>
+        <a href="{{ path('app_booking_book', {id: book.id}) }}" class="border mb-8 border-slate-400 flex p-4 rounded-md max-w-96 hover:bg-gray-200">
+            <span class="text-gray-400">
+                <i class="fa-solid fa-pencil"></i>
+            </span>
+            <span>Reserver un livre</span>
+        </a>
         {% endif %}
+        </book>
         {% endfor%}
     {% else %}
         <h2 class="m-auto" >Il n'y a pas de livre</h2>

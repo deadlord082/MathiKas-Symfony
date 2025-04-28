@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des reservations{% endblock %}
+
+{% block body %}
+
+<h1>Liste des reservations</h1>
+{% if app.user %}
+<a href="{{ path('app_add_booking') }}" class="border mb-8 border-slate-400 flex p-4 rounded-md max-w-96 hover:bg-gray-200">
+    <span class="text-gray-400">
+        <i class="fa-solid fa-pencil"></i>
+    </span>
+    <span>Ajouter une reservation</span>
+</a>
+{% endif %}
+
+
+<div class="flex flex-wrap gap-4">
+    {% if bookings|length > 0 %}
+        {% for booking in bookings %}
+        <booking class="border border-slate-400 p-4 rounded-md max-w-96">
+        <a class="flex flex-col gap-3" href="{{ path('app_show_booking', {id: booking.id}) }}">
+            <h2>{{booking.book.title}}</h2>
+            <span class="text-gray-400">
+            <i class="fa-solid fa-pencil"></i>
+            {{booking.date|date('d/m/Y')}}
+            </span>
+        </a>
+        </booking>
+        {% endfor%}
+    {% else %}
+        <h2 class="m-auto" >Il n'y a pas de réservation</h2>
+    {% endif %}
+</div>
+
+{% endblock %}

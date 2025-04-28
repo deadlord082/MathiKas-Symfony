@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservation{% endblock %}
+
+{% block body %}
+
+<h1>Reservation</h1>
+
+<img class="rounded-sm" src="{{ asset('images/placeholder.svg') }}"/>
+<h2>Reservation par {{booking.user.email}} le {{booking.date|date('d/m/Y')}}</h2>
+<span class="text-gray-400">
+<h3>livre {{booking.book.title}}</h3>
+</span>
+
+{% endblock %}

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Booking;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -40,7 +41,7 @@ final class BookController extends AbstractController
     public function add(Request $request, EntityManagerInterface $em): Response
     {    
         //1. On prépare un objet vide (cible du form)
-        $book = new book();
+        $book = new Book();
         $book->settitle('Titre');
         $book->setisbn('ISBN');
         $book->setauthor('Autheur');
@@ -95,6 +96,21 @@ final class BookController extends AbstractController
         return $this->render('book/edit.html.twig', [
             'form' => $form
         ]);
-       
+    }
+
+    #[Route('/booking-book/{id}', name: 'app_booking_book', requirements: ["id" => "\d+"])]
+    public function booking(Request $request, EntityManagerInterface $em, int $id): Response
+    { 
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $user = $this->getUser();
+
+        $booking = new Booking();
+        $booking->setbook_id($id);
+        $booking->setuser_id($user->id);
+        $booking->setdate(new \DateTimeImmutable());
+
+        $em->persist($booking);
+        $em->flush();
+        return $this->redirectToRoute("app_books");
     }
 }

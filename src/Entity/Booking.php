@@ -3,7 +3,12 @@
 namespace App\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Repository\BookingRepository;
+use Doctrine\ORM\Mapping as ORM;
 
+
+#[ORM\Entity(repositoryClass: BookingRepository::class)]
+#[ORM\Table(name: '`booking`')]
 class Booking
 {
     #[ORM\Id]
@@ -11,45 +16,48 @@ class Booking
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Assert\NotBlank]
+    #[ORM\ManyToOne(inversedBy: "bookings", fetch: "EAGER")]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Book $book = null;
+
+    #[ORM\ManyToOne(inversedBy: "bookings", fetch: "EAGER")]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
     #[ORM\Column]
-    protected ?int $book_id = null;
+    protected ?\DateTimeImmutable $date;
 
-    #[Assert\NotBlank]
-    #[ORM\Column]
-    protected ?int $user_id = null;
-
-    #[Assert\NotBlank]
-    #[Assert\Type(\DateTimeInterface::class)]
-    protected ?\DateTimeInterface $date;
-
-    public function getbook_id(): string
-    {
-        return $this->book_id;
-    }
-
-    public function setbook_id(?int $book_id): void
-    {
-        $this->book_id = $book_id;
-    }
-
-    public function getuser_id(): string
-    {
-        return $this->user_id;
-    }
-
-    public function setuser_id(?int $user_id): void
-    {
-        $this->user_id = $user_id;
-    }
-
-    public function getdate(): ?\DateTimeInterface
+    public function getdate(): ?\DateTimeImmutable
     {
         return $this->date;
     }
 
-    public function setdate(?\DateTimeInterface $date): void
+    public function setdate(?\DateTimeImmutable $date): void
     {
         $this->date = $date;
+    }
+
+    public function getUser(): ?User
+    {
+      return $this->user;
+    }
+  
+    public function setUser(?User $user): static
+    {
+      $this->user = $user;
+  
+      return $this;
+    }
+
+    public function getBook(): ?Book
+    {
+      return $this->book;
+    }
+  
+    public function setAuthor(?Book $book): static
+    {
+      $this->book = $book;
+  
+      return $this;
     }
 }
