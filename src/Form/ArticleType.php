@@ -14,7 +14,6 @@ class ArticleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('date', DateTimeImmutable::class)
             ->add('title', TextType::class, [
                 'constraints' =>  new Length(['max' => 255]),
             ])

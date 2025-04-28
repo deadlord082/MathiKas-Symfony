@@ -40,7 +40,7 @@ final class ArticleController extends AbstractController
         $article->settitle('testTitre');
         $article->setcontent('testContenu');
         $article->setAuthor($user);
-        $article->setDate(new \DateTimeImmutable('tomorrow'));
+        $article->setDate(new \DateTimeImmutable('now'));
 
         //2. Crée le form via la formbuilder et la classe préparée
         $form = $this->createForm(ArticleType::class, $article);
