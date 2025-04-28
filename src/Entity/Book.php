@@ -13,19 +13,19 @@ class Book
 
     #[Assert\NotBlank]
     #[ORM\Column]
-    protected string $isbn = null;
+    protected ?string $isbn = null;
 
     #[Assert\NotBlank]
     #[ORM\Column]
-    protected string $author = null;
+    protected ?string $author = null;
 
     #[Assert\NotBlank]
     #[ORM\Column]
-    protected string $title = null;
+    protected ?string $title = null;
 
     #[Assert\NotBlank]
     #[ORM\Column]
-    protected string $resume = null;
+    protected ?string $resume = null;
 
     #[Assert\NotBlank]
     #[Assert\Type(\Date::class)]
