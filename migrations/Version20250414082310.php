@@ -21,7 +21,7 @@ final class Version20250414082310 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql(<<<'SQL'
-            CREATE TABLE "article" (id SERIAL NOT NULL, title VARCHAR(255) NOT NULL, content VARCHAR(255) NOT NULL, author_id INT NOT NULL, date VARCHAR(255) NOT NULL, PRIMARY KEY(id))
+            CREATE TABLE "article" (id SERIAL NOT NULL, title VARCHAR(255) NOT NULL, content VARCHAR(255) NOT NULL, author_id INT NOT NULL, date TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(id))
         SQL);
         $this->addSql(<<<'SQL'
             CREATE INDEX IDX_23A0E66F675F31B ON article (author_id)
