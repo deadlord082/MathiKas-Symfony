@@ -104,9 +104,11 @@ final class BookController extends AbstractController
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
 
+        $book = $em->getRepository(Book::class)->find($id);
+
         $booking = new Booking();
-        $booking->setbook_id($id);
-        $booking->setuser_id($user->id);
+        $booking->setBook($book);
+        $booking->setUser($user);
         $booking->setdate(new \DateTimeImmutable());
 
         $em->persist($booking);

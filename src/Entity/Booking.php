@@ -54,7 +54,7 @@ class Booking
       return $this->book;
     }
   
-    public function setAuthor(?Book $book): static
+    public function setBook(?Book $book): static
     {
       $this->book = $book;
   
