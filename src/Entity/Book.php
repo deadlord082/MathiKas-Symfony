@@ -1,9 +1,15 @@
 <?php
 // src/Entity/Book.php
+// src/Entity/Article.php
 namespace App\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Repository\BookRepository;
+use Doctrine\ORM\Mapping as ORM;
 
+
+#[ORM\Entity(repositoryClass: BookRepository::class)]
+#[ORM\Table(name: '`book`')]
 class Book
 {
     #[ORM\Id]
