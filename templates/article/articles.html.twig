@@ -6,6 +6,23 @@
 
 <h1>Liste des articles</h1>
 
-{{ articles }}
+<div class="flex flex-wrap gap-4">
+  {% if articles_list|length > 0 %}
+    {% for article in articles_list %}
+    <article class="border border-slate-400 p-4 rounded-md max-w-96">
+      <a class="flex flex-col gap-3" href="{{ path('app_article', {id: article.id}) }}">
+        <img class="rounded-sm" src="{{ asset('images/placeholder.svg') }}"/>
+        <h2>{{article.title}}</h2>
+        <span class="text-gray-400">
+          <i class="fa-solid fa-pencil"></i>
+          {{article.createdAt|date('d/m/Y')}}
+        </span>
+      </a>
+    </article>
+    {% endfor%}
+  {% else %}
+    <h2 class="m-auto" >Il n'y a pas d'article</h2>
+  {% endif %}
+</div>
 
 {% endblock %}
