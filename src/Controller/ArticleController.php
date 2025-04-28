@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,7 +30,8 @@ final class ArticleController extends AbstractController
     public function add(Request $request, EntityManagerInterface $em): Response
     {
         // Récupère le user depuis la session
-        $user = $this->security->getUser();
+        // $user = $this->security->getUser();
+        $user = new User();
     
         //1. On prépare un objet vide (cible du form)
         $article = new article();
