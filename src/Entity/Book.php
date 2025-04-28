@@ -34,7 +34,7 @@ class Book
     protected ?string $resume = null;
 
     #[ORM\Column]
-    protected ?\DateTimeInterface $date;
+    protected ?\DateTimeImmutable $date = null;
 
     public function getid(): string
     {
