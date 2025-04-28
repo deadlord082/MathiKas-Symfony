@@ -31,7 +31,9 @@ final class ArticleController extends AbstractController
     {
         // Récupère le user depuis la session
         // $user = $this->security->getUser();
-        $user = new User();
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $user = $this->getUser();
+        // $user = new User();
     
         //1. On prépare un objet vide (cible du form)
         $article = new article();
