@@ -17,6 +17,10 @@ class Book
 
     #[Assert\NotBlank]
     #[ORM\Column]
+    protected string $author = null;
+
+    #[Assert\NotBlank]
+    #[ORM\Column]
     protected string $title = null;
 
     #[Assert\NotBlank]
@@ -24,8 +28,8 @@ class Book
     protected string $resume = null;
 
     #[Assert\NotBlank]
-    #[Assert\Type(\DateTimeInterface::class)]
-    protected ?\DateTimeInterface $date;
+    #[Assert\Type(\Date::class)]
+    protected ?\Date $date;
 
     public function getisbn(): string
     {
@@ -35,6 +39,16 @@ class Book
     public function setisbn(string $isbn): void
     {
         $this->isbn = $isbn;
+    }
+
+    public function getauthor(): string
+    {
+        return $this->author;
+    }
+
+    public function setauthor(string $author): void
+    {
+        $this->author = $author;
     }
 
     public function gettitle(): string

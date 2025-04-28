@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Livre{% endblock %}
+
+{% block body %}
+
+<h1>Livre</h1>
+
+<img class="rounded-sm" src="{{ asset('images/placeholder.svg') }}"/>
+<h2>{{book.title}}</h2>
+<h3>{{book.isbn}}</h3>
+<p>écrit par # le {{book.date|date('d/m/Y')}}</p>
+<span class="text-gray-400">
+<h3>{{book.resume}}</h3>
+</span>
+
+{% endblock %}

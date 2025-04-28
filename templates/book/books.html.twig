@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des livres{% endblock %}
+
+{% block body %}
+
+<h1>Liste des livres</h1>
+{% if app.user %}
+<a href="{{ path('app_add_book') }}" class="border mb-8 border-slate-400 flex p-4 rounded-md max-w-96 hover:bg-gray-200">
+    <span class="text-gray-400">
+        <i class="fa-solid fa-pencil"></i>
+    </span>
+    <span>Ajouter un livre</span>
+</a>
+{% endif %}
+
+
+<div class="flex flex-wrap gap-4">
+    {% if books|length > 0 %}
+        {% for book in books %}
+        <book class="border border-slate-400 p-4 rounded-md max-w-96">
+        <a class="flex flex-col gap-3" href="{{ path('app_show_book', {id: book.id}) }}">
+            <img class="rounded-sm" src="{{ asset('images/placeholder.svg') }}"/>
+            <h2>{{book.title}}</h2>
+            <span class="text-gray-400">
+            <i class="fa-solid fa-pencil"></i>
+            {{book.date|date('d/m/Y')}}
+            </span>
+        </a><br>
+        {% if app.user %}
+        <a href="{{ path('app_edit_book', {id: book.id}) }}" class="border mb-8 border-slate-400 flex p-4 rounded-md max-w-96 hover:bg-gray-200">
+            <span class="text-gray-400">
+                <i class="fa-solid fa-pencil"></i>
+            </span>
+            <span>Editer un livre</span>
+        </a>
+        </book>
+        {% endif %}
+        {% endfor%}
+    {% else %}
+        <h2 class="m-auto" >Il n'y a pas de livre</h2>
+    {% endif %}
+</div>
+
+{% endblock %}
