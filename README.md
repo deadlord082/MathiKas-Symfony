@@ -23,6 +23,11 @@ docker compose up -d
 php bin/console doctrine:migrations:migrate
 ~~~
 
+Autre commande utiles
+~~~bash
+php bin/console doctrine:migrations:execute --up DoctrineMigrations\Version20250424162117
+~~~
+
 ## Lancer le projet
 
 ~~~bash

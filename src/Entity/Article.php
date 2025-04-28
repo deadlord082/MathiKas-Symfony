@@ -29,9 +29,8 @@ class Article
     #[ORM\JoinColumn(nullable: false)]
     private ?User $author = null;
 
-    #[Assert\NotBlank]
-    #[Assert\Type(\DateTimeInterface::class)]
-    protected ?\DateTimeInterface $date;
+    #[ORM\Column]
+  private ?\DateTimeImmutable $date = null;
 
     public function gettitle(): string
     {
@@ -54,15 +53,17 @@ class Article
     }
 
 
-    public function getdate(): ?\DateTimeInterface
-    {
-        return $this->date;
-    }
+    public function getdate(): ?\DateTimeImmutable
+  {
+    return $this->date;
+  }
 
-    public function setdate(?\DateTimeInterface $date): void
-    {
-        $this->date = $date;
-    }
+  public function setdate(\DateTimeImmutable $date): static
+  {
+    $this->date = $date;
+
+    return $this;
+  }
 
     public function getAuthor(): ?User
     {

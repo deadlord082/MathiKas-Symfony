@@ -40,7 +40,6 @@ final class ArticleController extends AbstractController
         $article->settitle('testTitre');
         $article->setcontent('testContenu');
         $article->setAuthor($user);
-        $article->setDate(new \DateTimeImmutable('now'));
 
         //2. Crée le form via la formbuilder et la classe préparée
         $form = $this->createForm(ArticleType::class, $article);
@@ -50,6 +49,7 @@ final class ArticleController extends AbstractController
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             //Traitement du formulaire
+            $article->setdate(new \DateTimeImmutable());
             $article = $form->getData();
             //La j'ai un objet correct, je peux le persister
             $em->persist($article);
