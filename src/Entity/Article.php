@@ -54,12 +54,12 @@ class Article
     }
 
 
-    public function getdate(): ?\DateTimeInterface
+    public function getdate(): string
     {
         return $this->date;
     }
 
-    public function setdate(?\DateTimeInterface $date): void
+    public function setdate(?string $date): void
     {
         $this->date = $date;
     }
