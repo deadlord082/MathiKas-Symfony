@@ -27,9 +27,13 @@ class Book
     #[ORM\Column]
     protected ?string $resume = null;
 
-    #[Assert\NotBlank]
-    #[Assert\Type(\Date::class)]
-    protected ?\Date $date;
+    #[ORM\Column]
+    protected ?\DateTimeInterface $date;
+
+    public function getid(): string
+    {
+        return $this->id;
+    }
 
     public function getisbn(): string
     {
@@ -71,12 +75,12 @@ class Book
         $this->resume = $resume;
     }
 
-    public function getdate(): ?\DateTimeInterface
+    public function getdate(): ?\DateTimeImmutable
     {
         return $this->date;
     }
 
-    public function setdate(?\DateTimeInterface $date): void
+    public function setdate(?\DateTimeImmutable $date): void
     {
         $this->date = $date;
     }
