@@ -45,7 +45,7 @@ final class BookController extends AbstractController
         $book->setisbn('ISBN');
         $book->setauthor('Autheur');
         $book->setresume('Resume');
-        $book->setdate(new \DateTimeImmutable('now'));
+        $book->setdate(new \DateTimeImmutable());
 
         //2. Crée le form via la formbuilder et la classe préparée
         $form = $this->createForm(BookType::class, $book);
