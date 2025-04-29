@@ -4,38 +4,41 @@
 
 {% block body %}
 
-<h1>Liste des articles</h1>
-{% if app.user %}
-<a href="{{ path('app_add_article') }}" class="border mb-8 border-slate-400 flex p-4 rounded-md max-w-96 hover:bg-gray-200">
-    <span class="text-gray-400">
-        <i class="fa-solid fa-pencil"></i>
-    </span>
-    <span>Ajouter un article</span>
-</a>
-{% endif %}
+<div class="articles-header">
+    <h1>Liste des articles</h1>
+    {% if app.user %}
+    <a href="{{ path('app_add_article') }}" class="btn">
+        <span class="text-gray-400">
+            <i class="fa-solid fa-pencil"></i>
+        </span>
+        <span>Ajouter un article</span>
+    </a>
+    {% endif %}
+</div>
 
 
-<div class="flex flex-wrap gap-4">
+<div class="articles-list">
     {% if articles|length > 0 %}
         {% for article in articles %}
-        <article class="border border-slate-400 p-4 rounded-md max-w-96">
-        <a class="flex flex-col gap-3" href="{{ path('app_show_article', {id: article.id}) }}">
-            <img class="rounded-sm" src="{{ asset('images/placeholder.svg') }}"/>
-            <h2>{{article.title}}</h2>
-            <span class="text-gray-400">
-            <i class="fa-solid fa-pencil"></i>
-            {{article.date|date('d/m/Y')}}
-            </span>
-        </a><br>
-        {% if app.user and article.author.id == app.user.id %}
-        <a href="{{ path('app_edit_article', {id: article.id}) }}" class="border mb-8 border-slate-400 flex p-4 rounded-md max-w-96 hover:bg-gray-200">
-            <span class="text-gray-400">
-                <i class="fa-solid fa-pencil"></i>
-            </span>
-            <span>Editer l'Article</span>
-        </a>
-        {% endif %}
-        </article>
+        <div class=" article-line">
+            <div class="article-info">
+                <a class="flex flex-col gap-3" href="{{ path('app_show_article', {id: article.id}) }}">
+                    <h2>{{article.title}}</h2>
+                    <span class="text-gray-400">
+                    <i class="fa-solid fa-pencil"></i>
+                    {{article.date|date('d/m/Y')}}
+                    </span>
+                </a>
+            </div>
+            {% if app.user and article.author.id == app.user.id %}
+            <a href="{{ path('app_edit_article', {id: article.id}) }}" class="btn-small">
+                <span class="text-gray-400">
+                    <i class="fa-solid fa-pencil"></i>
+                </span>
+                <span>Editer l'Article</span>
+            </a>
+            {% endif %}
+        </div>
         {% endfor%}
     {% else %}
         <h2 class="m-auto" >Il n'y a pas d'article</h2>

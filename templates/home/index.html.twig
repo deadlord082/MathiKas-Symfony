@@ -1,28 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil
-{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
 
-	<p>Bienvenue sur notre site web</p>
+<header>
 
 	{% if app.user %}
-		<p>
-			<a href="{{ path('app_logout')}}">Se déconnecter</a>
-			<br>
-			<a href="{{ path('app_articles') }}">voir les articles</a>
+		<a href="{{ path('app_logout')}}" class ="btn">Se déconnecter</a>
+	{% else %}
+		<a href="{{ path('app_register') }}" class ="btn">Créer un compte</a>
+		<a href="{{ path('app_login')}}" class ="btn">Se connecter</a>
 			{# <a href="{{ path('app_books') }}">voir les livres</a>
 			<a href="{{ path('app_bookings') }}">voir mes réservations</a> #}
-		</p>
-	{% else %}
-		<a href="{{ path('app_register') }}">Créer un compte</a>
-		<br>
-		<a href="{{ path('app_login')}}">Se connecter</a>
-		<br>
-		<a href="{{ path('app_articles') }}">voir les articles</a>
-		{# <a href="{{ path('app_books') }}">voir les livres</a> #}
 	{% endif %}
+</header>
+	<h1 style="text-align: center">Bienvenue sur notre site web</h1>
+		<div class="main-center">
+			<a href="{{ path('app_articles') }}" class ="btn">voir les articles</a>
+		{# <a href="{{ path('app_books') }}">voir les livres</a> #}
+		</div>
 
 
 {% endblock %}

@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 1rem 2rem;
+}
+
+.btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.main-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Style du login et register */
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px);
+    padding: 1rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 300px;
+}
+
+/* Style de la liste des articles */
+
+.articles-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem auto 1rem;
+    max-width: 1000px;
+    padding: 0 1rem;
+}
+
+.articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem 2rem;
+}
+
+.article-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 6px;
+    background: #fff;
+    gap: 1rem;
+}
+
+.article-info {
+    flex-grow: 1;
+}
+
+.article-title {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #007BFF;
+    text-decoration: none;
+    margin-bottom: 0.3rem;
+}
+
+.article-title:hover {
+    text-decoration: underline;
+}
+
+.article-date {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.btn-small {
+    padding: 0.4rem 0.8rem;
+    background: #6c757d;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.btn-small:hover {
+    background: #5a6268;
+}
