@@ -18,11 +18,9 @@ final class BookingController extends AbstractController
     { 
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
-        $bookings = $em->getRepository(Booking::class)->findAll(['user_id' => $user->id]);
+        $test = $em->getRepository(Booking::class)->findAll();
 
-        return $this->render('booking/bookings.html.twig', [
-            'bookings' => $bookings
-        ]);   
+        return $this->render('home/index.html.twig', []);  
     }
 
     #[Route("/bookings/{id}", name: "app_show_booking", requirements: ["id" => "\d+"])]
